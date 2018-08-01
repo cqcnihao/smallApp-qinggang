@@ -1,0 +1,77 @@
+<view id="orderContainer">
+  <view class="orderInfoFirst">
+    <view class="content">  <!--通过content类设置所有内容的左右边距 -->
+      <image class="orderImg" src="{{houseInfo.img}}"></image>
+      <view>
+        <text>{{houseInfo.name}}</text>
+        <text class="houseDetail">{{houseInfo.houseType}} | 可住{{houseInfo.peopleNum}}人</text>
+      </view>
+    </view>
+  </view>
+  <view class="orderInfoSecond">
+    <view class="content">  
+      <view class="aboutTime">
+        <view class="checkTime">
+          <text>入住时间</text>
+          <text>离开时间</text>
+        </view>
+        <view class="checkTime">
+          <text>{{startTime}}</text>
+          <text>{{endTime}}</text>
+        </view>
+      </view>
+      <view>
+        <view class="houseCount">
+          <text>房源数量</text>
+          <text>1套</text>
+        </view>
+        <view class="input-text">
+            <text>入住人数</text>
+            <input placeholder="必填" placeholder-class="placeholderClass" bindinput="liveNumInput" type="number"/> 
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="orderInfoThird">
+    <view class="content">
+      <view id="contactPerson" class="input-text">
+        <text>联系人</text>
+        <input placeholder="请填入真实姓名" placeholder-class="placeholderClass" bindinput="linkmanInput"/>
+      </view>
+      <view class="input-text">
+        <text>手机号</text>
+        <input type="number" placeholder="请输入手机号" placeholder-class="placeholderClass" bindinput="phoneInput"/>
+      </view>
+    </view>
+  </view>
+  <view class="orderInfoFourth">
+    <view class="content">
+      <text>入住信息(只需一位)</text>
+      <view class="clientName input-text">
+        <text>姓名</text>
+        <input placeholder="请填写证件上的姓名"  placeholder-class="placeholderClass" bindinput="trueNameInput"/>
+      </view>
+      <view class="input-text">
+        <text>身份证号</text>
+        <input type="idcard" id="phoneNum" placeholder="请填写正确身份证号码" placeholder-class="placeholderClass" bindinput="idcardInput"/>
+      </view>
+    </view>
+  </view>
+  <view class="orderInfoFifth">
+    <view class="content">
+      <text>房费总额</text>
+      <text>￥{{houseInfo.price*liveDayCount}}</text>
+    </view>
+  </view>
+  <view class="orderInfoSixth">
+    <view class="content">
+      <text>退款政策</text>
+      <text>入住之前一天取消订单，全额退款。入住以后中途办理退款，办理当天的费用不退，当天以后的费用可退。</text>
+    </view>
+  </view>
+  <view class="orderInfoFinal">
+    <text class="payMent">线上支付： </text>
+    <text class="money">￥{{houseInfo.price*liveDayCount}}</text>
+    <button catchtap="handleBtnTap">提交订单</button>
+  </view>
+</view>

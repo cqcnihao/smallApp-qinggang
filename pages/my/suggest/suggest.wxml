@@ -1,0 +1,14 @@
+<view class="wrapper">
+  <text class="suggestTitle">您的问题或建议:</text>
+  <textarea
+    placeholder="请描述您在使用产品过程中的问题或建议(必填)"
+    placeholder-class="placeholderClassTextarea"
+    bindinput="ontextareaContent"
+  ></textarea>
+  <text class="suggestTitle">您的联系方式:</text>
+  <input placeholder-class="placeholderClassInput" placeholder="请输入您的邮箱(选填)" bindinput="onEmailAccount"/>
+  <!-- 自动获取用户的手机号 -->
+  <input placeholder-class="placeholderClassInput" placeholder="请输入您的联系电话(必填)" bindinput="onphoneNum" /> 
+  <text class="remarkText">请提供您的联系方式，以便我们能够了解问题以及给您反馈处理结果。</text>
+  <button type="primary" catchtap="onsuggestTap">提交建议</button>
+</view>

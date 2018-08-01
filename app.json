@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/housedetails/details",
+    "pages/my/index",
+    "pages/confirmationorder/confirmationorder",
+    "pages/orders/orders",
+    "pages/orders/orderdetails/orderdetail",
+    "pages/orders/orderdetails/refund/refund",
+    "pages/my/suggest/suggest",
+    "pages/my/about-us/about-us"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#71C671",
+    "navigationBarTitleText": "品道·青杠",
+    "navigationBarTextStyle":"#fff",
+    "navigationStyle":"default",
+   "enablePullDownRefresh":true
+  },
+  "tabBar":{
+    "color":"#8B8B7A",
+    "selectedColor":"#71C671",
+    "backgroundColor":"#fff",
+    "borderStyle":"#8B8B7A",
+    "position":"bottom",
+    "list":[ 
+      {
+        "selectedIconPath":"img/ic_home_selected.png",
+        "iconPath":"img/ic_home_normal.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "img/ic_community_selected.png",
+        "iconPath": "img/ic_community_normal.png",
+        "pagePath": "pages/orders/orders",
+        "text": "订单"
+      },
+      {
+        "selectedIconPath": "img/ic_mine_selected.png",
+        "iconPath": "img/ic_mine_normal.png",
+        "pagePath": "pages/my/index",
+        "text": "我的"
+      }
+      ]
+  }
+}

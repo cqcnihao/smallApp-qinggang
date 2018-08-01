@@ -1,0 +1,34 @@
+
+<view class='userInfo' style="background-color:#71C671;no-repeat; background-size:100% 100%;  -moz-background-size:100% 100%;  " >
+    <image class='headImg' src='{{avatarUrl}}'></image>
+    <text class='username'>{{nickName}}</text>
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" wx:if="{{show}}">登录</button>
+</view>
+
+<view class='label' bindtap='toOrder' style='margin-top:1.33vw'>
+    <image class='lableImg' src='../../img/order.png'></image>
+    <text class='labeltitle'>我的订单</text>
+    <image class='leftdirection' src='../../img/leftdirection.png'></image>
+</view>
+
+<view class='label' catchtap='onFeedbackTap' >
+    <image class='lableImg' src='../../img/feedback.png'></image>
+    <text class='labeltitle'>意见反馈</text>
+    <image class='leftdirection' src='../../img/leftdirection.png'></image>
+</view>
+
+
+<view catchtap="onContactTap" class='label' >
+    <image class='lableImg' src='../../img/customerservice.png'></image>
+    <text  class='labeltitle'>联系客服</text>
+    <image class='leftdirection' src='../../img/leftdirection.png'></image>
+</view>
+
+
+ <view class='label' catchtap='handleAboutUsTap'>
+    <image class='lableImg' src='../../img/about.png'></image>
+    <text class='labeltitle'>关于我们</text>
+    <image class='leftdirection' src='../../img/leftdirection.png'></image>
+</view>
+<button wx:if="{{!show}}" catchtap="checkOut">退出登录</button>
+

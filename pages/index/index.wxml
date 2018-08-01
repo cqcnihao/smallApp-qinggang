@@ -1,0 +1,72 @@
+ <!-- 轮播图区域 -->
+<view class="carousel-item">
+    <swiper class="swiper" indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="{{ActiveColor}}">
+      <block wx:for="{{imgUrls}}" wx:key="imgUrls">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+</view>
+<!-- 搜索时间区域 -->
+<view class="regional-treatment">
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th"><icon class='icon-agin' type="waiting" size="16" color="#71C671"/><text>入住时间</text></view>
+    <view class="th"><icon class='icon-agin icon-shape-left' type="info" size="16" color="#71C671"/><text>结束时间</text></view>
+    
+  </view>
+  <view class="tr bg-w">
+    <view class="th">
+ <!-- 开始时间选择 -->
+        <picker mode="date" value="{{start_time}}" start="{{start_time}}"  bindchange="bindStartDateChange">
+            <view style='font-size: 40rpx;' class="picker">
+              {{start_time_date}}
+              <image class='icon-shape' src="../../img/ic_down.png"></image>
+            </view>
+        </picker>
+    </view>
+    <view class="th">
+      <!-- 结束时间选择 -->
+        <picker mode="date" value="{{end_time}}" start="{{end_time}}"  bindchange="bindEndDateChange">
+          <view style='font-size: 40rpx;' class="picker">
+            {{end_time_date}}
+             <image class='icon-shape' src="../../img/ic_down.png"></image>
+          </view>
+        </picker>
+    </view>
+    
+  </view>
+   <view style='border-bottom: 2rpx solid #FFF;' class="tr bg-w">
+    <button bindtap="bindSearchDate" class="search-button" size="{{search_button_size}}" type='{{search_button_type}}'>搜索           </button>
+  </view>
+</view>
+</view>
+<!-- 房源区域 -->
+<block wx:if="{{houseArray!=null && houseArray.length!=0}}">
+  <block wx:for="{{houseArray}}" wx:key="{{itemName.id}}" wx:for-index="idx" wx:for-item="itemName">
+      <view bindtap="bindHouseDetails" id="{{itemName.id}}"  class='house-regional-treatment'>
+          <view>
+            <image src="{{itemName.img}}" class="homeImg"></image>
+          </view> 
+          <view class='house-text-treatment'>
+            <text class='housePrice'>￥{{itemName.price}}</text>
+            <text class='house-tile-font'>{{itemName.name}}</text>
+            <!-- 当订单为不为空时，显示 '满房' -->
+            <text
+              class='mangFangStyle'
+              wx:if="{{itemName.orders!=null && itemName.orders.length!=0}}"
+            >满房</text>
+          </view>
+          <view class='house-text-treatment'>
+            <text class='house-particulars-font'>{{itemName.roomNum}}室丨{{itemName.acreage}}㎡</text>
+          </view>
+      </view>
+  </block>
+</block>
+<!-- 当房源数据为空时 -->
+<block wx:else>
+  <view class='house-regional-treatment'>没有找到相应房源</view>
+</block>
+

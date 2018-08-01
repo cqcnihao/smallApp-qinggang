@@ -1,0 +1,37 @@
+<view 
+  wx:for="{{orderArray}}"
+  wx:if="{{orderArray.length !== 0 && orderArray !== null }}"
+  catchtap="onorderDetail"
+  wx:key="item.houseId"
+  id="{{item.id}}"
+  class="orderContainer"
+> 
+  <view class="content">
+    <view wx:if="{{item.status === '已付款'}}" class="statusYfkText">
+      <text>{{item.status}}</text>
+    </view>
+    <view wx:elif="{{item.status === '待付款'}}" class="statusDfkText">
+      <text>{{item.status}}</text>
+    </view>
+    <view wx:elif="{{item.status === '已取消'}}" class="statusYqxText">
+      <text>{{item.status}}</text>
+    </view>
+    <view wx:elif="{{item.status === '已完成'}}" class="statusYwcText">
+      <text>{{item.status}}</text>
+    </view>
+    <view wx:else class="statusTkText">
+      <text>{{item.status}}</text>
+    </view>
+    <view>
+      <text>{{item.houseName}}</text>
+    </view>
+    <view class="orderDetail">
+      <text>{{item.liveTime}} 至 {{item.leaveTime}}</text>
+    </view>
+    <text class="orderDetail">订单总额： ￥{{item.price}}</text>
+  </view>
+</view>
+<view wx:if="{{code === '-1'}}" class="noOrder">
+  <image class="noOrderImg" src="/img/status-none@2x.png"></image>
+  <text class="noOrderText">您现在还没有订单哦!</text>
+</view>

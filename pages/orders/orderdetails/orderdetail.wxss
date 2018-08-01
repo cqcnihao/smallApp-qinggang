@@ -1,0 +1,61 @@
+#orderContainer {
+
+}
+
+text {
+  font-size: 24rpx;
+}
+
+.content {
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+}
+
+.firstPart {
+  border-bottom: 2rpx solid #DCDCDC;
+}
+
+.orderInfo {
+  display: flex;
+  padding: 45rpx 0; 
+}
+
+.orderImg {
+   width: 150rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+  margin-right: 35rpx;
+}
+
+.houseInfo {
+  color: #999;
+}
+.orderDetails .content {
+  display: flex;
+  justify-content: space-between;
+  line-height: 80rpx;
+}
+
+.secondPart, .thirdPart, .thirdPart .content {
+  border-bottom: 2rpx solid #DCDCDC;
+}
+
+.btnWrapper {
+  display: flex;
+  margin-top: 100rpx;
+}
+.cancelBtn::after, .refundBtn::after {
+  width: 200rpx;
+  border: none;
+}
+
+.PaymentBtn, .getPasswordBtn {
+  background-color: #008000;
+  color: #fff;
+  width: 300rpx;
+}
+
+.dfkButtons {
+  position: fixed;
+  bottom: 0;
+}

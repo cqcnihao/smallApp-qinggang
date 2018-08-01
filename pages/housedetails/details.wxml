@@ -1,0 +1,114 @@
+<view>
+<swiper  current='{{current}}' duration='{{duration}}' circular='{{circular}}'>
+  <block wx:for="{{imgUrls}}" wx:key='{{item.id}}'>
+    <swiper-item class="imgContainer">
+        <image mode="" src="{{item.address}}"  class='swiper-img'></image>
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+<view class='details'>
+  <view>
+    <text class='houseName'>{{houseName}}</text>
+  </view>
+  <view class='label'>
+    <text class='price'>￥{{price}}/天</text>
+  </view>
+  <view class='line'></view>
+
+  <view class='housedetails'>
+    <view class='detailslable'>
+      <image class='lableImg' src='../../img/coupon.png'></image>
+      <text class='labletext'>{{peopleNum}}人</text>
+    </view>
+    <view class='detailslable'>
+      <image class='lableImg' src='../../img/coupon.png'></image>
+      <text class='labletext'>{{acreage}}m²</text>
+    </view>
+    <view class='detailslable'>
+      <image class='lableImg' src='../../img/coupon.png'></image>
+      <text class='labletext'>{{roomNum}}室</text>
+    </view>
+    <view class='detailslable'>
+      <image class='lableImg' src='../../img/coupon.png'></image>  
+      <text class='labletext'>{{bedNum}}床</text>
+    </view>
+    <view class='detailslable'>
+      <image class='lableImg' src='../../img/coupon.png'></image>
+      <text class='labletext'>{{toilet}}卫</text> 
+    </view>
+  </view>
+  <view class='line'></view> 
+  <view class='texttitle'>
+    <text>房源介绍</text>
+  </view>
+  <view class='introduce'>
+    <text>{{introduce}}</text>
+  </view>
+  <view class='line'></view> 
+  <view class='texttitle'>
+    <text>房源位置</text>
+  </view>
+  <view class='address'>
+    <text>{{address}}</text>
+  </view>
+  <view class='line'></view>
+  <view class='texttitle'>
+    <text>配套设施</text>
+  </view>
+  <view class='facilities'>
+    <text>{{facilities}}</text>
+  </view>
+  <view class='texttitle'>
+    <text>入住须知</text>
+  </view>
+  <view class='line'></view>
+  <view class='notice'>
+    <text>预付费用</text>
+    <text class='requirement'>100%</text>
+  </view>
+  <view class='line'></view>
+  <view class='notice'>
+    <text>额外费用</text>
+    <text class='requirement'>无</text>
+  </view>
+  <view class='line'></view>
+  <view class='notice'>
+    <text>接待时间</text>
+    <text class='requirement'>10:00-22:00</text>
+  </view>
+  <view class='line'></view>
+  <view class='notice'>
+    <text>入住时间</text>
+    <text class='requirement'>10:00</text>
+  </view>
+  <view class='line'></view>
+  <view class='notice'>
+    <text>退房时间</text>
+    <text class='requirement'>12:00</text>
+  </view>
+  <view class='line'></view>
+  <view class='notice'>
+    <text>最少入住天数</text>
+    <text class='requirement'>1天</text>
+  </view>
+  <view class='line'></view>
+  <view class='notice'>
+    <text>最多入住天数</text>
+    <text class='requirement'>360天</text>
+  </view>
+  <view class='line'></view>
+  <view class='notice'>
+    <text>户型</text>
+    <text class='requirement'>{{houseType}}</text>
+  </view>
+  <view class='line'></view>
+  <view class='notice'>
+    <text>外宾</text>
+    <text class='requirement'>不接待</text>
+  </view>
+  <view class='line'></view>    
+</view>
+<view class='bookbutton'>
+  <button bindtap='immediatereservation' type='primary' class='button'>立即预订</button>
+</view>

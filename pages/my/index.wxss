@@ -1,0 +1,71 @@
+/* pages/personalPage/personalPage.wxss */
+
+page{
+    background: #efeff4;
+}
+
+.title{
+  text-align:center;font-size:16px
+}
+
+.userInfo{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width:100vw;
+  height:40vw;
+  text-align: center;
+}
+
+.userInfo button {
+  height: 100rpx;
+  margin-top: 180rpx; 
+}
+
+.headImg{
+  position: absolute;
+  width:19.3vw;
+  height:19.3vw;
+  background:#fff;
+  z-index:12;
+  border-radius: 50%;
+  left: 41.26vw;
+  top: 3.73vw
+}
+
+.username{
+  position: absolute;
+  z-index:13;
+  color:#fff;
+  left: 45.1vw;
+  top: 24.5vw;
+  font-size: 4vw;
+}
+
+.label{
+  display: flex;
+  width: 100vw;
+  height: 12vw;
+  background:#fff;
+  color: #fff;
+  border-bottom: 0.5vw solid  #efeff4;
+  position: relative
+  
+}
+
+.lableImg{
+  width: 5.53vw;height: 5.53vw;margin-top: 3.3vw;margin-left: 5.86vw
+}
+
+.labeltitle{
+  font-size:4vw;margin-top:3.3vw;color:#000;margin-left:10px
+}
+
+.leftdirection{
+  width: 3.6vw;height: 3.6vw;position: absolute;right:7.46vw;top: 4.2vw;display: inline-block
+}
+
+.loginOut {
+  width: 200rpx;
+  margin-top: 40rpx;
+}

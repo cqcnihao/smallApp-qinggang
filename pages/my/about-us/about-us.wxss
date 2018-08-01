@@ -1,0 +1,15 @@
+.headerImg {
+   height: 400rpx;
+   width: 100%;
+}
+
+.introduction {
+   height: 50rpx;
+   margin: 20rpx 0;
+   background-color: #fff;
+}
+
+.line {
+  border-bottom: 2rpx solid #DCDCDC;
+  margin-top: 10rpx;
+}

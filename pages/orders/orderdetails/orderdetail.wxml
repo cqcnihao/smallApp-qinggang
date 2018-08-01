@@ -1,0 +1,69 @@
+<view class="firstPart">
+  <view class="content orderInfo">
+    <image class="orderImg" src="{{orderDetails.img}}"></image>
+    <view>
+      <view><text>{{orderDetails.houseName}}</text></view>
+      <view class="houseInfo">
+        <view><text class="houseDetail">{{orderDetails.liveTime}} 至 {{orderDetails.leaveTime}}</text></view>
+        <view class="houseCount">
+          <text>房源数量</text>
+          <text>1套</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="orderDetails">
+  <view class="secondPart">
+    <view class="content">
+      <text>线上支付到青杠</text>
+      <text>￥{{orderDetails.price}}</text>
+    </view>
+  </view>
+  <view class="thirdPart">
+    <view class="content">
+      <text>联系人</text>
+      <text>{{orderDetails.linkman}}</text>
+    </view>
+    <view class="content">
+      <text>手机号</text>
+      <text>{{orderDetails.phone}}</text>
+    </view>
+    <view class="content">
+      <text>入住人姓名</text>
+      <text>{{orderDetails.trueName}}</text>
+    </view>
+    <view class="content">
+      <text>身份证号</text>
+      <text>{{orderDetails.idcard}}</text>
+    </view>
+    <view class="content">
+      <text>订单id号</text>
+      <text>{{orderDetails.id}}</text>
+    </view>
+    <view class="content">
+      <text>下单时间</text>
+      <text>{{orderDetails.createTime}}</text>
+    </view>
+  </view>
+</view>
+<view class="btnWrapper" wx:if="{{orderDetails.status === '待付款'}}">
+  <button class="cancelBtn" catchtap="cancelOrder">取消订单</button>
+  <button class="PaymentBtn">去支付</button>
+</view>
+<view wx:elif="{{orderDetails.status === '已付款'}}" class="btnWrapper">
+  <button class="refundBtn" catchtap="handleRefound">申请退款</button>
+  <button
+    catchtap="getHousePassword"
+    class="getPasswordBtn"
+  >获取开房密码</button>
+</view>
+<button
+  wx:elif="{{orderDetails.status === '已完成'}}"
+>订单已完成</button>
+<button
+  wx:elif="{{orderDetails.status === '退款'}}"
+>订单已退款</button>
+<button
+  wx:else="{{orderDetails.status === '已取消'}}"
+>订单已取消</button>

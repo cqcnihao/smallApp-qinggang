@@ -1,0 +1,42 @@
+.orderContainer {
+  border-bottom: 2rpx solid #DCDCDC;
+}
+
+.content {
+  margin: 30rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+
+.orderDetail {
+  font-size: 20rpx;
+  color: #999;
+}
+
+.statusDfkText, .statusYfkText, .statusYwcText {
+  color: #71C671;
+}
+
+.statusYqxText, .statusTkText{
+  color: #B22222;
+}
+
+.noOrder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:100%;
+  position:  absolute
+}
+
+.noOrderImg {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 40rpx;
+}
+
+.noOrderText {
+  font-size: 30rpx;
+}

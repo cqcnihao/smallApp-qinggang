@@ -1,0 +1,44 @@
+.wrapper {
+  margin: 0 25rpx;
+}
+
+textarea {
+  box-sizing: border-box;
+  border: 2rpx solid #DCDCDC;
+  width: 100%;
+  height: 300rpx;
+  margin: 30rpx 0;
+  padding: 10rpx 10rpx;
+}
+
+.placeholderClassTextarea {
+  font-size: 24rpx;
+  padding-left: 10rpx;
+}
+
+.placeholderClassInput {
+  font-size: 24rpx;
+  /* padding-left: 10rpx; */
+}
+
+.suggestTitle {
+  display: block;
+  font-size: 30rpx;
+  margin: 30rpx 0;
+}
+
+input {
+  border: 2rpx solid #DCDCDC;
+  margin-bottom: 20rpx;
+  padding: 0 10rpx; 
+  font-size: 24rpx;
+}
+
+.remarkText {
+  font-size: 26rpx;
+}
+
+button {
+  font-size: 26rpx;
+  margin-top: 30rpx;
+}

@@ -1,0 +1,7 @@
+<view>
+  <image class="headerImg" src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"></image>
+  <view class="introduction" catchtap="handleCompanyTap">
+    <text>公司介绍</text>
+    <view class="line"></view>
+  </view>
+</view>

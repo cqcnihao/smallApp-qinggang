@@ -1,0 +1,100 @@
+.swiper-img{
+  width: 100%;
+  height: 100%;
+}
+ .imgContainer {
+  width: 750rpx;
+  height: 320rpx;
+} 
+.details{
+  margin: 0 25rpx;
+}
+.houseName{
+  font-size: 50rpx;
+}
+.label{ 
+  margin-top: 20rpx;
+  position: relative  
+}
+ .price{
+  font-size: 48rpx;
+}
+.line{
+  margin-top: 30rpx;
+  border-bottom: 4rpx solid  #efeff4;
+  position: relative;
+}
+.lableImg{
+  width: 70rpx;
+  height: 70rpx;
+}
+.housedetails{
+  display: flex;
+}
+.detailslable{
+  margin: 6rpx 0 6rpx 60rpx;
+  width: 70rpx;
+  height: 80rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+.texttitle{
+  font-size:30rpx; 
+  margin-top:38rpx;
+  font-weight:bold;
+}
+.introduce{
+  margin-top: 12rpx;
+  width: 100%;
+  font-size: 24rpx;
+  display: -webkit-box;
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  letter-spacing: 4rpx;
+}
+.address{
+  margin-top: 12rpx;
+  width: 100%;
+  font-size: 24rpx;
+  display: -webkit-box;
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  letter-spacing: 4rpx;
+}
+.facilities{
+  margin: 12rpx 0 20rpx 0;
+  width: 100%;
+  font-size: 24rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+  overflow: scroll;
+  letter-spacing: 4rpx;
+}
+.notice{
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+.requirement{
+  position: relative;
+  float: right; 
+}
+.bookbutton{
+width:100%;  
+background-color:#fff; 
+}
+.button{
+  width: 100%;
+  position: relative;
+  margin:0 auto; 
+}
+  

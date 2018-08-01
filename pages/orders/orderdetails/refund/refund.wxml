@@ -1,0 +1,8 @@
+<view class="wrapper">
+  <textarea
+      placeholder="请描述您退款的原因"
+      placeholder-class="placeholderClassTextarea"
+      bindinput="ontextareaContent"
+  ></textarea>
+  <button catchtap="submitRefound">提交退款申请</button>
+</view>
