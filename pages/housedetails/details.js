@@ -26,7 +26,7 @@ Page({
     var endTime = wx.getStorageSync('endTime');
     var that = this;
     wx.request({
-      url: 'http://192.168.1.3:8080/greenbar/house/findOne?id=' + option.id, //仅为示例，并非真实的接口地址
+      url: 'http://192.168.1.6:8080/greenbar/house/findOne?id=' + option.id, //仅为示例，并非真实的接口地址
       method: "GET",
       data: {
         "liveTime": startTime, //客户首页选的

@@ -31,7 +31,7 @@ Page({
       })
     } else {
       wx.request({
-        url: 'http://192.168.1.3:8080/greenbar/order/refund',
+        url: 'http://192.168.1.6:8080/greenbar/order/refund',
         method: 'POST',
         data: {
           "orderId": that.data.orderId,

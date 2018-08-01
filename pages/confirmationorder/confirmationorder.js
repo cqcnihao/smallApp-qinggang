@@ -1,5 +1,6 @@
 var util = require('../../utils/util.js');
 var app = getApp();
+var userInfo = wx.getStorageSync('userInfo');
 Page({
   data: {
   },
@@ -8,19 +9,7 @@ Page({
     var startTime = wx.getStorageSync('startTime');
     var endTime = wx.getStorageSync('endTime');
     var houseInfo = wx.getStorageSync('houseInfo');
-    var leaveYear = Number(endTime.split("-")[0]);
-    var leaveTimeMonth = Number(endTime.split("-")[1]);
-    var leaveDay = Number(endTime.split("-")[2]);
-    var leaveDate = new Date(leaveYear, leaveTimeMonth, leaveDay);
-    var leaveTime = leaveDate.getTime(); 
-    var startYear = Number(startTime.split("-")[0]);
-    var startTimeMonth = Number(startTime.split("-")[1]);
-    var startDay = Number(startTime.split("-")[2]);
-    var startDate = new Date(startYear, startTimeMonth, startDay);
-    var livetime = startDate.getTime();
-    //计算入住的天数
-    var day = parseInt((leaveTime - livetime) / (1000 * 60 * 60 * 24));
-    // var data = JSON.parse(option.data); 该方法失效改用缓存
+    var day = wx.getStorageSync("dayCount")
     this.setData({
       houseInfo: houseInfo,
       startTime: startTime, 
@@ -100,9 +89,16 @@ Page({
         showCancel: false
       })
     }
+    else if (that.data.liveDayCount > 90) {
+      wx.showModal({
+        title: '提示',
+        content: '预订时间最长只能90天',
+        showCancel: false
+      })
+    }
     else {
       wx.request({
-        url: 'http://192.168.1.3:8080/greenbar/order/add',
+        url: 'http://192.168.1.6:8080/greenbar/order/add',
         method: "POST",
         data: {
           "userId": userInfo.id,  //需要改为返回的

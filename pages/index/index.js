@@ -1,6 +1,4 @@
-//index.js
-//获取应用实例
-const app = getApp();
+
 var util = require('../../utils/util.js');
 var post_ip = "http://192.168.1.3:8080/";
 var post_find_house_by_date = "greenbar/house/findByTime";
@@ -29,81 +27,78 @@ Page({
       listData: [
         { "code": "01", "text": "text1", "type": "type1" },
       ],//表格样式
-      //房源图片
-      houseImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       houseArray:null,//房源json数据
   },
   /**
    * 页面加载时绘制所有房源
    */
-  onLoad: function (options) { 
+  onLoad: function (options) {
     var that = this;
-    /**接口访问 */
-    wx.request({
-      url: 'http://192.168.1.3:8080/greenbar/house/findByTime',
-      method: "GET",
-      data: {
-        "liveTime": that.data.start_time,
-        "leaveTime": that.data.end_time
-      },
-      dataType: "json",
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        if (res.data.code == "1") {//当code为1的时候
-          that.setData({
-            houseArray: res.data.obj,
-            //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
-          });
-        } else {
-          console.log(res.data.msg);
-        }
-
-      },
-      fail: function (error) {
-        console.log(error);
-      }
-    }),
-    //缓存开始时间和结束时间
-    wx.setStorageSync('startTime', that.data.start_time);
-    wx.setStorageSync('endTime', that.data.end_time);
+    var data = this.data;
+    var day= util.countDayMount(data.start_time, data.end_time);
+    this.setData({
+      day: day
+    })
+    wx.setStorageSync('dayCount', day)
   },
   /**
    * 开始时间选择功能
    */
   bindStartDateChange:function(e){
+    var start_time = e.detail.value;
+    var end_time = util.getDateStr(e.detail.value, 1);
+    var day = util.countDayMount(start_time, end_time);
     this.setData({
-      start_time: e.detail.value,
-      end_time: util.getDateStr(e.detail.value, 1),
+      start_time: start_time,
+      end_time: end_time,
       start_time_date: e.detail.value.split("-", 3)[1] + "月" + e.detail.value.split("-", 3)[2]+"日",
       end_time_date: util.getDateStr(e.detail.value, 1).split("-", 3)[1] + "月" + util.getDateStr(e.detail.value, 1).split("-", 3)[2] + "日",
-      
+      day: day
     });
     //更新缓存开始时间和结束时间
     wx.setStorageSync('startTime', e.detail.value);
     wx.setStorageSync('endTime', util.getDateStr(e.detail.value, 1));
-
+    wx.setStorageSync('dayCount', day);
   },
   /**
    * 结束时间选择功能
    */
   bindEndDateChange:function(e){
+    var end_time = e.detail.value;
+    var start_time = this.data.start_time;
+    var day = util.countDayMount(start_time, end_time);
     this.setData({
       end_time: e.detail.value,
       end_time_date: e.detail.value.split("-", 3)[1] + "月" + e.detail.value.split("-", 3)[2] + "日",
+      day: day
     });
     //更新缓存的结束时间
     wx.setStorageSync('endTime', e.detail.value);
+    var data = this.data;
+    var leaveYear = Number(data.end_time.split("-")[0]);
+    var leaveTimeMonth = Number(data.end_time.split("-")[1]);
+    var leaveDay = Number(data.end_time.split("-")[2]);
+    var leaveDate = new Date(leaveYear, leaveTimeMonth, leaveDay);
+    var leaveTime = leaveDate.getTime();
+    var startYear = Number(data.start_time.split("-")[0]);
+    var startTimeMonth = Number(data.start_time.split("-")[1]);
+    var startDay = Number(data.start_time.split("-")[2]);
+    var startDate = new Date(startYear, startTimeMonth, startDay);
+    var livetime = startDate.getTime();
+    //计算入住的天数
+    var day = parseInt((leaveTime - livetime) / (1000 * 60 * 60 * 24));
+    wx.setStorageSync('dayCount', day)
+    this.setData({
+      day: day
+    })
   },
     /**
    * 获取开始时间和结束时间查询房源
    */
   bindSearchDate:function(e){
     var that = this;
-    /**接口访问 */
     wx.request({
-      url: 'http://192.168.1.3:8080/greenbar/house/findByTime', //仅为示例，并非真实的接口地址
+      url: 'http://192.168.1.6:8080/greenbar/house/findByTime', //仅为示例，并非真实的接口地址
       method: "GET",
       data: {
         "liveTime": that.data.start_time,
@@ -117,7 +112,10 @@ Page({
         if (res.data.code == "1") {//当code为1的时候
           that.setData({
             houseArray: res.data.obj,
-            //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
+          })
+          var allHouseInfo = JSON.stringify(that.data.houseArray);
+          wx.navigateTo({
+            url: '/pages/houseInfo/houseInfo?allHouseInfo=' + allHouseInfo
           })
         } else {
           console.log(res.data.msg);
@@ -127,14 +125,14 @@ Page({
       fail: function (error) {
         console.log(error);
       }
-    })
+    });
+    //缓存初始时间
+    wx.setStorageSync('startTime', that.data.start_time);
+    wx.setStorageSync('endTime', that.data.end_time);
   },
-  /**
-   * 点击房源获取id
-   */
-  bindHouseDetails:function(event){
+  toTeamPage: function() {
     wx.navigateTo({
-      url: '../housedetails/details?id=' + event.currentTarget.id,
+      url: '/pages/teamActivities/teamActivities',
     })
   }
 })

@@ -1,6 +1,3 @@
-
-// var app = getApp();
-// var userInfo = app.globalData.userInfo;
 var userInfo = wx.getStorageSync('userInfo');
 Page({
   data: {},
@@ -26,7 +23,7 @@ Page({
   onContactTap: function() {
     wx.showModal({
       title: '提示',
-      content: '拨打青杠客服： 123456789',
+      content: '拨打客服热线： 123456789',
       success: function(res) {
         if(res.confirm) {
           wx.makePhoneCall({
@@ -38,7 +35,7 @@ Page({
   },
   onFeedbackTap: function() {
     wx.navigateTo({
-      url: 'suggest/suggest?userid=' + this.data.userInfo.id,
+      url: 'suggest/suggest?userid=' + userInfo.id,
     })
   },
   handleAboutUsTap: function() {
@@ -66,7 +63,7 @@ Page({
       success: function(res) {
         if(res.code) {
           wx.request({
-            url: 'http://192.168.1.3:8080/greenbar/user/add',
+            url: 'http://192.168.1.6:8080/greenbar/user/add',
             method: 'POST',
             data: {
               "code": res.code,
@@ -77,7 +74,6 @@ Page({
               'content-type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
-              console.log(res.data);
               var data = res.data.obj;
               wx.setStorageSync('userInfo', data);
               that.setData({
@@ -93,114 +89,5 @@ Page({
         }
       }
     })
-    // var that = this;
-    // if (openId) {
-    //   wx.getUserInfo({
-    //     success: function (res) {
-    //       that.setData({
-    //         nickName: res.userInfo.nickName,
-    //         avatarUrl: res.userInfo.avatarUrl,
-    //       })
-    //     },
-    //     fail: function () {
-    //       // fail
-    //       console.log("获取失败！")
-    //     },
-    //     complete: function () {
-    //       // complete
-    //       console.log("获取用户信息完成！")
-    //     }
-    //   })
-    // } else {
-    //   wx.login({
-    //     success: function (res) {
-    //       console.log(res.code);
-    //       if (res.code) {
-    //         wx.getUserInfo({
-    //           withCredentials: true,
-    //           success: function (res_user) {
-    //             console.log(res_user);
-    //             wx.request({
-    //               url: 'http://192.168.1.3:8080/greenbar/user/add',
-    //               data: {
-    //                 "code": res.code,
-    //                 "portrait": res_user.userInfo.avatarUrl,
-    //                 "nickname": res_user.userInfo.nickName,
-    //               },
-    //               method: 'POST',
-    //               header: {
-    //                 'content-type': 'application/x-www-form-urlencoded'
-    //               },
-    //               success: function (res) {
-    //                 console.log(res.data);
-    //                 that.setData({
-    //                   nickName: res.data.nickName,
-    //                   avatarUrl: res.data.avatarUrl,
-    //                 });
-    //                 wx.setStorageSync('openId', res.data.openId); //缓存用户数据
-    //               },
-    //               fail: function() {
-    //                 console.log('获取信息失败');
-    //               }
-    //             })
-    //           },
-    //           fail: function () {
-    //             wx.showModal({
-    //               title: '警告通知',
-    //               content: '您点击了拒绝授权将无法正常显示个人信息，点击确定重新获取授权。',
-    //               success: function () {
-    //                 if (res.confirm) {
-    //                   wx.openSetting({
-    //                     success: function (res) {
-    //                       if (res.authSetting['scope.userInfo']) {
-    //                         wx.login({
-    //                           success: function (res) {
-    //                             var code = res.code;
-    //                             if (code) {
-    //                               wx.getUserInfo({
-    //                                 withCredentials: true,
-    //                                 success: function (res_user) {
-    //                                   wx.request({
-    //                                     url: 'http://192.168.1.3:8080/greenbar/user/add',
-    //                                     data: {
-    //                                       "code": code,
-    //                                       "nickname": res_user.userInfo.avatarUrl,
-    //                                       "portrait": res_user.userInfo.avatarUrl,
-    //                                     },
-    //                                     method: 'POST',
-    //                                     header: {
-    //                                       'content-type': 'application/json'
-    //                                     },
-    //                                     success: function (res) {
-
-    //                                       that.setData({
-    //                                         nickName: res.data.nickName,
-    //                                         avatarUrl: res.data.avatarUrl,
-    //                                       });
-    //                                       wx.setStorageSync('userInfo', res.data); //缓存用户数据
-    //                                     },
-    //                                     fail: function() {
-    //                                       console.log('请求数据出错')
-    //                                     }
-    //                                   })
-    //                                 }
-    //                               })
-    //                             }
-    //                           }
-    //                         });//第二次login
-    //                       }
-    //                     },
-    //                     fail: function (res) {
-    //                     }
-    //                   })
-    //                 }
-    //               }
-    //             })
-    //           }
-    //         })
-    //       }
-    //     }
-    //   })
-    // }
   }
 })

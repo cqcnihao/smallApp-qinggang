@@ -1,6 +1,6 @@
 <view 
   wx:for="{{orderArray}}"
-  wx:if="{{orderArray.length !== 0 && orderArray !== null }}"
+  wx:if="{{orderArray.length !== 0 && orderArray !== null && userInfo !== ''}}"
   catchtap="onorderDetail"
   wx:key="item.houseId"
   id="{{item.id}}"
@@ -26,7 +26,7 @@
       <text>{{item.houseName}}</text>
     </view>
     <view class="orderDetail">
-      <text>{{item.liveTime}} 至 {{item.leaveTime}}</text>
+      <text>入住时间：{{item.liveTime}} 至 {{item.leaveTime}}</text>
     </view>
     <text class="orderDetail">订单总额： ￥{{item.price}}</text>
   </view>
@@ -35,3 +35,8 @@
   <image class="noOrderImg" src="/img/status-none@2x.png"></image>
   <text class="noOrderText">您现在还没有订单哦!</text>
 </view>
+<view wx:if="{{userInfo === ''}}" class="noOrder">
+  <image class="noOrderImg" src="/img/status-none@2x.png"></image>
+  <text class="noOrderText">您现在还没有登录哦!</text>
+</view>
+

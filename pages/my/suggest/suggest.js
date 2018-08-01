@@ -40,7 +40,7 @@ Page({
     } 
     else {
       wx.request({
-        url: 'http://192.168.1.3:8080/greenbar/feedback/add',
+        url: 'http://192.168.1.6:8080/greenbar/feedback/add',
         method: 'POST',
         data: {
           "id": that.data.userId,

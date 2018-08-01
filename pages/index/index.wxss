@@ -39,7 +39,7 @@
     text-align: center;
 }
 .bg-w{
-  background: snow;
+  background:#fff;
   border-bottom: 2rpx solid #DCDCDC;
 }
 .bg-g{
@@ -52,7 +52,7 @@
   
 }
 .th {
-  width: 50%;
+  width: 40%;
   justify-content: center;
   background: #FFFFFF;
   color: 	#696969;
@@ -64,9 +64,11 @@
 }
 /* 搜索按钮样式 */
 .search-button{
-  width: 90%;
+  width: 650rpx;
   height: 70rpx;
+  margin-top: 20rpx;
   margin-bottom: 20rpx;
+  border-radius: 30rpx;
 }
 .icon-agin{
   margin-right: 5%;
@@ -91,14 +93,8 @@
 .mangFangStyle {
   margin-top: 10rpx;
   margin-left: 10rpx;
-  background-color: #FFA500;
-  color: #fff;
   width: 100rpx;
   height: 32rpx;
-  line-height: 32rpx;
-  text-align: center;
-  font-size: 24rpx;
-  padding: 0 2rpx;
 }
 .house-text-treatment{
   display: flex;
@@ -121,4 +117,38 @@
 }
 .text-fontwight{
   font-weight: bold;
+}
+
+.team {
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  margin-top: 40rpx;
+}
+
+.teamText {
+  font-family: PingFangSC-Regular;
+  margin-bottom: 20rpx;
+  font-weight: 600;
+}
+
+.team image {
+  width: 700rpx;
+}
+
+.dayContainer {
+  width: 200rpx;
+  height: 50rpx;
+}
+
+.liveDayMount {
+  position: absolute;
+  height: 46rpx;
+  line-height: 46rpx;
+  font-size: 28rpx;
+  text-align: center;
+  color:	#696969;
+}
+
+.kongGe {
+  width: 180rpx;
 }

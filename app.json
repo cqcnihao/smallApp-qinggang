@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/houseInfo/houseInfo",
+    "pages/teamActivities/teamActivities",
     "pages/housedetails/details",
     "pages/my/index",
     "pages/confirmationorder/confirmationorder",

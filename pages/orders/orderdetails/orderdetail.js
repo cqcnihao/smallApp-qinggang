@@ -5,7 +5,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://192.168.1.3:8080/greenbar/order/findOne?id=' + options.id,
+      url: 'http://192.168.1.6:8080/greenbar/order/findOne?id=' + options.id,
       method: "GET",
       dataType: "json",
       header: {
@@ -21,7 +21,7 @@ Page({
   getHousePassword: function() {
     var that = this;
       wx.request({
-        url: 'http://192.168.1.3:8080/greenbar/sms/identifying?id=' + that.data.orderDetails.id,
+        url: 'http://192.168.1.6:8080/greenbar/sms/identifying?id=' + that.data.orderDetails.id,
         method: "GET",
         dataType: "json",
         header: {
@@ -42,7 +42,7 @@ Page({
   cancelOrder: function() {
     var that= this;
     wx.request({
-      url: 'http://192.168.1.3:8080/greenbar/order/cancel?id=' + that.data.orderDetails.id,
+      url: 'http://192.168.1.6:8080/greenbar/order/cancel?id=' + that.data.orderDetails.id,
       method: "POST",
       dataType: "json",
       header: {

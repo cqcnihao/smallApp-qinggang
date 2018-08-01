@@ -1,0 +1,27 @@
+<!-- 房源区域 -->
+<block wx:if="{{allHouseInfo!=null && allHouseInfo.length!=0}}">
+  <block wx:for="{{allHouseInfo}}" wx:key="{{itemName.id}}" wx:for-index="idx" wx:for-item="itemName">
+      <view bindtap="bindHouseDetails" id="{{itemName.id}}"  class='house-regional-treatment'>
+          <view>
+            <image src="{{itemName.img}}" class="homeImg"></image>
+          </view> 
+          <view class='house-text-treatment'>
+            <text class='housePrice'>￥{{itemName.price}}</text>
+            <text class='house-tile-font'>{{itemName.name}}</text>
+            <!-- 当订单为不为空时，显示 '满房' -->
+            <image
+              src="/img/hot2x.png"
+              class='mangFangStyle'
+              wx:if="{{itemName.orders!=null && itemName.orders.length!=0}}"
+            >热门</image>
+          </view>
+          <view class='house-text-treatment'>
+            <text class='house-particulars-font'>{{itemName.roomNum}}室丨{{itemName.acreage}}㎡</text>
+          </view>
+      </view>
+  </block>
+</block>
+<!-- 当房源数据为空时 -->
+<block wx:else>
+  <view class='house-regional-treatment'>没有找到相应房源</view>
+</block>
