@@ -54,6 +54,37 @@ Page({
       }
     })
   },
+  goPayment: function() {
+    var that = this;
+    wx.request({
+      url: "http://192.168.1.6:8080/greenbar/order/pay", 
+      method: "POST",
+      dataType: "json",
+      data: {
+        id: that.data.orderDetails.id
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+        // wx.requestPayment({
+        //   'timeStamp': '',
+        //   'nonceStr': '',
+        //   'package': '',
+        //   'signType': 'MD5',
+        //   'paySign': '',
+        //   'success': function (res) {
+        //   },
+        //   'fail': function (res) {
+        //   }
+        // })
+      },
+      fail: function (res) {
+        console.log("网络异常");
+      }
+    });
+  },
   handleRefound: function() {
     var now = util.formatTime(new Date());
     var nowYear = Number(now.split("-")[0]);

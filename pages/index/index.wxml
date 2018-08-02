@@ -10,43 +10,45 @@
     </swiper>
 </view>
 <!-- 搜索时间区域 -->
-<view class="regional-treatment">
-<view class="table">
-  <view class="tr bg-w">
-    <view class="th"><icon class='icon-agin' type="waiting" size="16" color="#71C671"/><text>入住时间</text></view>
-    <!-- 占位作用使上下的内容对齐 -->
-    <view class="kongGe"></view>
-    <view class="th"><icon class='icon-agin icon-shape-left' type="info" size="16" color="#71C671"/><text>结束时间</text></view>
-  </view>
-  <view class="tr bg-w">
-    <view class="th">
- <!-- 开始时间选择 -->
-        <picker mode="date" value="{{start_time}}" start="{{start_time}}"  bindchange="bindStartDateChange">
-            <view style='font-size: 40rpx;' class="picker">
-              {{start_time_date}}
-            </view>
-        </picker>
+<view class="wrapper">
+  <view class="regional-treatment">
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th"><icon class='icon-agin' type="waiting" size="16" color="#71C671"/><text>入住时间</text></view>
+        <!-- 占位作用使上下的内容对齐 -->
+        <view class="kongGe"></view>
+        <view class="th"><icon class='icon-agin icon-shape-left' type="info" size="16" color="#71C671"/><text>结束时间</text></view>
+      </view>
+      <view class="tr bg-w">
+        <view class="th">
+      <!-- 开始时间选择 -->
+            <picker mode="date" value="{{start_time}}" start="{{start_time}}"  bindchange="bindStartDateChange">
+                <view style='font-size:32rpx;' class="picker">
+                  {{start_time_date}}
+                </view>
+            </picker>
+        </view>
+        <image src="/img/liveDayMount.png" class="dayContainer"></image>
+        <view class="liveDayMount">{{day}}晚</view>
+        <view class="th">
+          <!-- 结束时间选择 -->
+            <picker mode="date" value="{{end_time}}" start="{{end_time}}"  bindchange="bindEndDateChange">
+              <view style='font-size: 32rpx;' class="picker">
+                {{end_time_date}}
+              </view>
+            </picker>
+        </view>
+      </view>
+      <view class="tr">
+        <button bindtap="bindSearchDate" class="search-button" size="mini" type="primary">房源搜索</button>
+      </view>
     </view>
-    <image src="/img/liveDayMount.png" class="dayContainer"></image>
-    <view class="liveDayMount">{{day}}晚</view>
-    <view class="th">
-      <!-- 结束时间选择 -->
-        <picker mode="date" value="{{end_time}}" start="{{end_time}}"  bindchange="bindEndDateChange">
-          <view style='font-size: 40rpx;' class="picker">
-            {{end_time_date}}
-          </view>
-        </picker>
-    </view>
-    
   </view>
-   <view style='border-bottom: 2rpx solid #FFF;' class="tr bg-w">
-    <button bindtap="bindSearchDate" class="search-button" size="{{search_button_size}}" type='{{search_button_type}}'>房源搜索</button>
-  </view>
-</view>
 </view>
 <view class="team" catchtap="toTeamPage">
   <view class="teamText">
+    <image src='/img/green@3x.png'></image>
     <text>团体预订</text>
   </view>
-  <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+  <image class="teamImg" src="/img/tuanjian.jpg"></image>
 </view>

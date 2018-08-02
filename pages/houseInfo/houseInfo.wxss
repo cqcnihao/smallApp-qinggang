@@ -6,11 +6,13 @@
   margin-left: 25rpx;
   margin-right: 25rpx;
   margin-top: 25rpx;
+  margin-bottom: 40rpx;
 }
 
 .homeImg {
   width: 700rpx;
   height: 320rpx;
+  border-radius: 8rpx;
 }
 
 .house-text-treatment{

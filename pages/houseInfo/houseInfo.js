@@ -13,6 +13,7 @@ Page({
    */
   onLoad: function (options) {
     var allHouseInfo = JSON.parse(options.allHouseInfo);
+    console.log(allHouseInfo);
     this.setData({
       allHouseInfo: allHouseInfo
     })

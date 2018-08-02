@@ -49,7 +49,7 @@
 </view>
 <view class="btnWrapper" wx:if="{{orderDetails.status === '待付款'}}">
   <button class="cancelBtn" catchtap="cancelOrder">取消订单</button>
-  <button class="PaymentBtn">去支付</button>
+  <button class="PaymentBtn" catchtap="goPayment">去支付</button>
 </view>
 <view wx:elif="{{orderDetails.status === '已付款'}}" class="btnWrapper">
   <button class="refundBtn" catchtap="handleRefound">申请退款</button>

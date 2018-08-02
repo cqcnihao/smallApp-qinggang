@@ -1,8 +1,5 @@
 
 var util = require('../../utils/util.js');
-var post_ip = "http://192.168.1.3:8080/";
-var post_find_house_by_date = "greenbar/house/findByTime";
-var post_find_house_all ="greenbar/house/findAll";
 
 Page({
   data:{
@@ -17,9 +14,6 @@ Page({
       interval: 5000,    //自动切换时间间隔
       duration: 1000,    //滑动动画时长
       ActiveColor: "#6495ED",   //当前选中指示点颜色
-      /**根据日期搜索房源 */
-      search_button_size: "mini",//按钮大小
-      search_button_type: "primary",//按钮的样式类型
       end_time: util.getDateStr(util.formatTime(new Date()), 1),//结束时间上传数据
       start_time: util.formatTime(new Date()),//开始时间上传数据
       start_time_date: util.formatTime(new Date()).split("-", 3)[1] + "月" + util.formatTime(new Date()).split("-", 3)[2] + "日",//开始时间显示
@@ -29,17 +23,16 @@ Page({
       ],//表格样式
       houseArray:null,//房源json数据
   },
-  /**
-   * 页面加载时绘制所有房源
-   */
   onLoad: function (options) {
-    var that = this;
     var data = this.data;
     var day= util.countDayMount(data.start_time, data.end_time);
     this.setData({
       day: day
     })
-    wx.setStorageSync('dayCount', day)
+    //页面加载的时候就缓存初始的开始时间，结束时间，入住天数
+    wx.setStorageSync('dayCount', day);
+    wx.setStorageSync('startTime', data.start_time); 
+    wx.setStorageSync('endTime', data.end_time);
   },
   /**
    * 开始时间选择功能
@@ -49,13 +42,11 @@ Page({
     var end_time = util.getDateStr(e.detail.value, 1);
     var day = util.countDayMount(start_time, end_time);
     this.setData({
-      start_time: start_time,
-      end_time: end_time,
       start_time_date: e.detail.value.split("-", 3)[1] + "月" + e.detail.value.split("-", 3)[2]+"日",
       end_time_date: util.getDateStr(e.detail.value, 1).split("-", 3)[1] + "月" + util.getDateStr(e.detail.value, 1).split("-", 3)[2] + "日",
       day: day
     });
-    //更新缓存开始时间和结束时间
+    //更新缓存开始时间和结束时间和天数
     wx.setStorageSync('startTime', e.detail.value);
     wx.setStorageSync('endTime', util.getDateStr(e.detail.value, 1));
     wx.setStorageSync('dayCount', day);
@@ -68,41 +59,27 @@ Page({
     var start_time = this.data.start_time;
     var day = util.countDayMount(start_time, end_time);
     this.setData({
-      end_time: e.detail.value,
       end_time_date: e.detail.value.split("-", 3)[1] + "月" + e.detail.value.split("-", 3)[2] + "日",
       day: day
     });
-    //更新缓存的结束时间
+    //更新缓存的结束时间和天数
     wx.setStorageSync('endTime', e.detail.value);
-    var data = this.data;
-    var leaveYear = Number(data.end_time.split("-")[0]);
-    var leaveTimeMonth = Number(data.end_time.split("-")[1]);
-    var leaveDay = Number(data.end_time.split("-")[2]);
-    var leaveDate = new Date(leaveYear, leaveTimeMonth, leaveDay);
-    var leaveTime = leaveDate.getTime();
-    var startYear = Number(data.start_time.split("-")[0]);
-    var startTimeMonth = Number(data.start_time.split("-")[1]);
-    var startDay = Number(data.start_time.split("-")[2]);
-    var startDate = new Date(startYear, startTimeMonth, startDay);
-    var livetime = startDate.getTime();
-    //计算入住的天数
-    var day = parseInt((leaveTime - livetime) / (1000 * 60 * 60 * 24));
-    wx.setStorageSync('dayCount', day)
-    this.setData({
-      day: day
-    })
+    wx.setStorageSync('dayCount', day);
   },
     /**
    * 获取开始时间和结束时间查询房源
    */
   bindSearchDate:function(e){
+    //不能在前面时间选择事件处理程序里面设置开始时间和离开data数据，会导致时间选择了某个月份后无法再选它前一个月的bug,通过缓存解决
+    var startTime = wx.getStorageSync('startTime'); 
+    var endTime = wx.getStorageSync('endTime');
     var that = this;
     wx.request({
       url: 'http://192.168.1.6:8080/greenbar/house/findByTime', //仅为示例，并非真实的接口地址
       method: "GET",
       data: {
-        "liveTime": that.data.start_time,
-        "leaveTime": that.data.end_time
+        "liveTime": startTime,
+        "leaveTime": endTime
       },
       dataType: "json",
       header: {
@@ -126,9 +103,6 @@ Page({
         console.log(error);
       }
     });
-    //缓存初始时间
-    wx.setStorageSync('startTime', that.data.start_time);
-    wx.setStorageSync('endTime', that.data.end_time);
   },
   toTeamPage: function() {
     wx.navigateTo({
