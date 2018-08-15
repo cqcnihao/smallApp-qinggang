@@ -4,12 +4,18 @@
 }
 
 .introduction {
-   height: 50rpx;
-   margin: 20rpx 0;
    background-color: #fff;
+   margin-left: 35rpx;
+   margin-right: 35rpx;
+   margin-bottom: 35rpx;
+   text-align: left;
+   text-indent: 50rpx;
 }
 
-.line {
-  border-bottom: 2rpx solid #DCDCDC;
-  margin-top: 10rpx;
+.title {
+  font-size: 30rpx;
+}
+.content {
+  font-size: 28rpx;
+  line-height: 50rpx;
 }

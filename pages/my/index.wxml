@@ -1,8 +1,7 @@
-
-<view class='userInfo' style="background-color:#71C671;no-repeat; background-size:100% 100%;  -moz-background-size:100% 100%;  " >
+<view class='userInfo'>
     <image class='headImg' src='{{avatarUrl}}'></image>
     <text class='username'>{{nickName}}</text>
-    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" wx:if="{{show}}">登录</button>
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" wx:if="{{show}}" class="loginBtn">登录</button>
 </view>
 
 <view class='label' bindtap='toOrder' style='margin-top:1.33vw'>
@@ -19,7 +18,7 @@
 
 
 <view catchtap="onContactTap" class='label' >
-    <image class='lableImg' src='../../img/customerservice.png'></image>
+    <image class='lableImg contactLable' src='../../img/customerservice.png'></image>
     <text  class='labeltitle'>联系客服</text>
     <image class='leftdirection' src='../../img/leftdirection.png'></image>
 </view>
@@ -30,5 +29,5 @@
     <text class='labeltitle'>关于我们</text>
     <image class='leftdirection' src='../../img/leftdirection.png'></image>
 </view>
-<button wx:if="{{!show}}" catchtap="checkOut">退出登录</button>
+<button wx:if="{{!show}}" catchtap="checkOut" class="loginOut">退出登录</button>
 

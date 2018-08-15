@@ -62,9 +62,70 @@ function countDayMount(livetime, leavetime) {
 
   return day
 }
+//发送请求函数
+function sendRequest(url, requestMethod, data, headerType, callback) {
+  wx.request({
+    url: url, 
+    method: requestMethod,
+    data: data,
+    dataType: "json",
+    header: {
+      'content-type': headerType
+    },
+    success: function (res) {
+      callback(res);
+    },
+    fail: function (error) {
+      console.log(error);
+    }
+  });
+}
+function sendPaymentRequest(url, requestMethod, data, headerType, callback) {
+  var data = 
+  wx.request({
+    url: url,
+    method: requestMethod,
+    data: data,
+    dataType: "json",
+    header: {
+      'content-type': headerType
+    },
+    success: function (res) {
+      callback(res);
+    },
+    fail: function (res) {
+      console.log(res)
+    }
+  });
+}
+
+function goPaymentCallback(res) {
+  var data = JSON.parse(res.data.obj);
+  var id = res.data.id;
+  wx.requestPayment({
+    'timeStamp': data.timeStamp,
+    'nonceStr': data.nonceStr,
+    'package': data.package,
+    'signType': 'MD5',
+    'paySign': data.paySign,
+    'success': function (res) {
+      wx.navigateTo({
+        url: '/pages/orders/orderdetails/orderdetail?id=' + id
+      })
+    },
+    'fail': function (res) {
+      wx.navigateTo({
+        url: '/pages/orders/orderdetails/orderdetail?id=' + id
+      })
+    }
+  })
+}
 
 module.exports = {
   formatTime: formatTime,
   getDateStr: getDateStr,
-  countDayMount: countDayMount
+  countDayMount: countDayMount,
+  sendRequest: sendRequest,
+  goPaymentCallback: goPaymentCallback,
+  sendPaymentRequest: sendPaymentRequest
 }

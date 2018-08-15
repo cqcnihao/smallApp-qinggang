@@ -1,34 +1,27 @@
-var userInfo = wx.getStorageSync('userInfo');
+var util = require('../../utils/util.js');
+var app = getApp();
 
 Page({
   data: {
+  },
+  callback: function(res) {
+    if (res.data.code == "1") {//当code为1的时候
+      this.setData({
+        orderArray: res.data.obj,
+        show: false
+      });
+    } else {
+      this.setData({
+        show: true
+      });
+    }
   },
   onShow: function (options) {
     var userInfo = wx.getStorageSync('userInfo');
     var that= this;
     if (userInfo !== "") { //不加if限制，当用户未登录时id为undefined发送请求会报错
-      wx.request({
-        url: "http://192.168.1.6:8080/greenbar/order/findAll?id=" + userInfo.id, //这个id为用户的id
-        method: "GET",
-        dataType: "json",
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success: function (res) {
-          if (res.data.code == "1") {//当code为1的时候
-            that.setData({
-              orderArray: res.data.obj,
-            });
-          } else {
-            that.setData({
-              code: res.data.code,
-            });
-          }
-        },
-        fail: function (res) {
-          console.log("网络异常");
-        }
-      });
+      var url = app.globalData.url + '/order/findAll?id=' + userInfo.id;
+      util.sendRequest(url, 'GET', '', 'application/json', that.callback)
     }
     this.setData({
       userInfo: userInfo

@@ -1,105 +1,86 @@
 var util = require('../../../utils/util.js');
+var app = getApp();
 Page({
-  data: { 
+  data: {
   },
-  onLoad: function (options) {
-    var that = this;
-    wx.request({
-      url: 'http://192.168.1.6:8080/greenbar/order/findOne?id=' + options.id,
-      method: "GET",
-      dataType: "json",
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function(res) {
-        that.setData({
-          orderDetails: res.data.obj,
-        })
-      }
+  onLoadCallback: function(res) {
+    this.setData({
+      orderDetails: res.data.obj
     })
   },
+  onLoad: function (options) {
+    var url = app.globalData.url + '/order/findOne?id=' + options.id;
+    this.setData({
+      orderId: options.id
+    })
+    util.sendRequest(url, 'GET', '', 'application/json', this.onLoadCallback);
+  },
+  //每次进入页面重新加载订单数据
+  onShow: function() {
+    var url = app.globalData.url + '/order/findOne?id=' + this.data.orderId;
+    util.sendRequest(url, 'GET', '', 'application/json', this.onShowCallback);
+  },
+  onShowCallback: function (res) {
+    this.setData({
+      orderDetails: res.data.obj
+    })
+  },
+  getPasswordCallback: function(res) {
+    if (res.data.code === "-1") {
+      wx.showModal({
+        title: '提示',
+        content: '只有在入住期间才能获取密码哟',
+        showCancel: false
+      })
+    } else if (res.data.code === "1") {
+      wx.showModal({
+        title: '提示',
+        content: '获取密码已成功，稍后我们会以短信形式发送至你订单信息中的手机号，请注意查收。',
+        showCancel: false
+      })
+    }
+  },
   getHousePassword: function() {
-    var that = this;
-      wx.request({
-        url: 'http://192.168.1.6:8080/greenbar/sms/identifying?id=' + that.data.orderDetails.id,
-        method: "GET",
-        dataType: "json",
-        header: {
-          'content-type': 'application/json'
-        },
-        success: function (res) {
-          //根据后台返回数据，code为-1时，给客户提示无法获取开房密码
-          if (res.data.code === "-1") {
-            wx.showModal({
-              title: '提示',
-              content: '只有在入住期间才能获取密码哟',
-              showCancel: false
-            })
-          }
-        }
-      }) 
+    var url = app.globalData.url + '/sms/identifying?id=' + this.data.orderDetails.id;
+    util.sendRequest(url, 'GET', '', 'application/json', this.getPasswordCallback);
+  },
+  cancelOrderCallback: function(res) {
+    this.setData({
+      orderDetails: res.data.obj
+    })
   },
   cancelOrder: function() {
-    var that= this;
-    wx.request({
-      url: 'http://192.168.1.6:8080/greenbar/order/cancel?id=' + that.data.orderDetails.id,
-      method: "POST",
-      dataType: "json",
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log('订单取消成功');
-        console.log(res.data);
+    var that = this;
+    var url = app.globalData.url + '/order/cancel?id=' + this.data.orderDetails.id;
+    wx.showModal({
+      title: '提示',
+      content: '确认要取消订单吗？',
+      success: function(res) {
+        if (res.confirm){
+          util.sendRequest(url, 'POST', '', 'application/json', that.cancelOrderCallback)
+        }
       }
     })
   },
   goPayment: function() {
     var that = this;
-    wx.request({
-      url: "http://192.168.1.6:8080/greenbar/order/pay", 
-      method: "POST",
-      dataType: "json",
-      data: {
-        id: that.data.orderDetails.id
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      success: function (res) {
-        console.log(res.data)
-        // wx.requestPayment({
-        //   'timeStamp': '',
-        //   'nonceStr': '',
-        //   'package': '',
-        //   'signType': 'MD5',
-        //   'paySign': '',
-        //   'success': function (res) {
-        //   },
-        //   'fail': function (res) {
-        //   }
-        // })
-      },
-      fail: function (res) {
-        console.log("网络异常");
-      }
-    });
+    wx.login({
+        success: function (res) {
+          var url = app.globalData.url + '/order/pay';
+          var data = {
+            "id": that.data.orderDetails.id,
+            "code": res.code
+          };
+          //调支付接口 跳转到订单页面
+          util.sendRequest(url, 'POST', data, 'application/x-www-form-urlencoded', util.goPaymentCallback);
+        }
+    })
   },
   handleRefound: function() {
     var now = util.formatTime(new Date());
-    var nowYear = Number(now.split("-")[0]);
-    var nowMonth = Number(now.split("-")[1]);
-    var nowDay = Number(now.split("-")[2]);
-    var nowDate = new Date(nowYear, nowMonth, nowDay);
-    var nowTime = nowDate.getTime();
-    var leaveYear = Number(this.data.orderDetails.leaveTime.split("-")[0]);
-    var leaveTimeMonth = Number(this.data.orderDetails.leaveTime.split("-")[1]);
-    var leaveDay = Number(this.data.orderDetails.leaveTime.split("-")[2]);
-    var leaveDate = new Date(leaveYear, leaveTimeMonth, leaveDay);
-    var leaveTime = leaveDate.getTime(); 
-    //计算离店日和申请退款日的差值，差值大于等于1才能跳转到退款页面
-    var day = parseInt((leaveTime - nowTime)/(1000*60*60*24));
-    if ( day>=1) {
+    var leaveTime = this.data.orderDetails.leaveTime;
+    var day = util.countDayMount(now, leaveTime);
+    if ( day>1) {
       wx.navigateTo({
         url: 'refund/refund?id=' + this.data.orderDetails.id,
       })
@@ -109,6 +90,20 @@ Page({
         content: '不在退款有效期，无法退款。',
         showCancel: false
       })  
+    }
+  },
+  applyInvoice: function() {
+    var orderDetails = JSON.stringify(this.data.orderDetails);
+    if (this.data.orderDetails.invoice === 'true') {
+      wx.showModal({
+        title: '提示',
+        content: '此订单已经开过发票，请耐心等待，如有疑问请联系客服',
+        showCancel: false
+      })
+    } else {
+      wx.navigateTo({
+        url: 'applyInvoice/invoice?orderDetails=' + orderDetails,
+      })
     }
   }
 })

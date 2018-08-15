@@ -73,9 +73,11 @@
 .search-button{
   width: 530rpx;
   height: 70rpx;
-  margin-top: 30rpx;
+  margin: 30rpx auto 0;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  background-color: #71C671;
   color: #fff;
-  background: #71C671;
 }
 .icon-agin{
   margin-right: 5%;
@@ -148,6 +150,9 @@
   width: 700rpx;
 }
 
+.dayWrapper {
+  position: relative;
+}
 .dayContainer {
   width: 200rpx;
   height: 50rpx;
@@ -155,6 +160,8 @@
 
 .liveDayMount {
   position: absolute;
+  top: 2rpx;
+  left: 80rpx;
   height: 46rpx;
   line-height: 46rpx;
   font-size: 24rpx;

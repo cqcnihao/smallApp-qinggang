@@ -1,11 +1,20 @@
-<view>
-<swiper  current='{{current}}' duration='{{duration}}' circular='{{circular}}'>
-  <block wx:for="{{imgUrls}}" wx:key='{{item.id}}'>
-    <swiper-item class="imgContainer">
-        <image mode="" src="{{item.address}}"  class='swiper-img'></image>
-    </swiper-item>
-  </block>
-</swiper>
+<view class="siwperContainer">
+  <swiper
+    current='{{current}}'
+    duration='{{duration}}'
+    circular='{{circular}}'
+    autoplay='true'
+    interval="3000"
+    class="swiper"
+    bindchange="swiperChange"
+  >
+    <block wx:for="{{imgUrls}}" wx:key='{{item.id}}'>
+      <swiper-item class="imgContainer">
+          <image mode="" src="{{item.address}}" ></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="imageCount">{{current+1}}/{{imgUrls.length}}</view>
 </view>
 <view class='details'>
   <view>
@@ -15,26 +24,25 @@
     <text class='price'>￥{{price}}/天</text>
   </view>
   <view class='line'></view>
-
   <view class='housedetails'>
     <view class='detailslable'>
-      <image class='lableImg' src='../../img/coupon.png'></image>
+      <image class='lableImg' src='../../img/man@2x.png'></image>
       <text class='labletext'>{{peopleNum}}人</text>
     </view>
     <view class='detailslable'>
-      <image class='lableImg' src='../../img/coupon.png'></image>
+      <image class='lableImg' src='../../img/size@2x.png'></image>
       <text class='labletext'>{{acreage}}m²</text>
     </view>
     <view class='detailslable'>
-      <image class='lableImg' src='../../img/coupon.png'></image>
+      <image class='lableImg' src='../../img/huxing@2x.png'></image>
       <text class='labletext'>{{roomNum}}室</text>
     </view>
     <view class='detailslable'>
-      <image class='lableImg' src='../../img/coupon.png'></image>  
+      <image class='lableImg' src='../../img/bed@2x.png'></image>  
       <text class='labletext'>{{bedNum}}床</text>
     </view>
     <view class='detailslable'>
-      <image class='lableImg' src='../../img/coupon.png'></image>
+      <image class='lableImg' src='../../img/restroom@2x.png'></image>
       <text class='labletext'>{{toilet}}卫</text> 
     </view>
   </view>
@@ -80,12 +88,12 @@
   <view class='line'></view>
   <view class='notice'>
     <text>入住时间</text>
-    <text class='requirement'>10:00</text>
+    <text class='requirement'>14:00后</text>
   </view>
   <view class='line'></view>
   <view class='notice'>
     <text>退房时间</text>
-    <text class='requirement'>12:00</text>
+    <text class='requirement'>12:00前</text>
   </view>
   <view class='line'></view>
   <view class='notice'>
@@ -95,7 +103,7 @@
   <view class='line'></view>
   <view class='notice'>
     <text>最多入住天数</text>
-    <text class='requirement'>360天</text>
+    <text class='requirement'>90天</text>
   </view>
   <view class='line'></view>
   <view class='notice'>
@@ -105,10 +113,9 @@
   <view class='line'></view>
   <view class='notice'>
     <text>外宾</text>
-    <text class='requirement'>不接待</text>
+    <text class='requirement'>接待</text>
   </view>
   <view class='line'></view>    
 </view>
-<view class='bookbutton'>
-  <button bindtap='immediatereservation' type='primary' class='button'>立即预订</button>
-</view>
+<button bindtap='immediatereservation' class='reserveBtn'>立即预订</button>
+

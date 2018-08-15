@@ -1,11 +1,28 @@
-.swiper-img{
-  width: 100%;
-  height: 100%;
+.siwperContainer {
+  posiiton: relative;
 }
- .imgContainer {
-  width: 750rpx;
-  height: 320rpx;
-} 
+.swiper {
+  width: 100%;
+  height: 400rpx;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+.imageCount {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #000;
+  opacity: 0.5;
+  border-radius: 50%;
+  line-height: 78rpx;
+  color: #ffffff;
+  text-align: center;
+  font-size: 26rpx;
+  position: absolute;
+  right: 26rpx;
+  top: 300rpx;
+}
 .details{
   margin: 0 25rpx;
 }
@@ -16,26 +33,36 @@
   margin-top: 20rpx;
   position: relative  
 }
- .price{
+.labletext {
+  font-size: 28rpx;
+  width: 100rpx;
+}
+.price{
   font-size: 48rpx;
 }
 .line{
-  margin-top: 30rpx;
+  margin-top: 20rpx;
   border-bottom: 4rpx solid  #efeff4;
   position: relative;
 }
 .lableImg{
-  width: 70rpx;
-  height: 70rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 .housedetails{
   display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .detailslable{
-  margin: 6rpx 0 6rpx 60rpx;
-  width: 70rpx;
-  height: 80rpx;
-  font-size: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20rpx 0;
+  width: 100rpx;
+  height: 120rpx;
+  font-size: 28rpx;
   text-align: center;
 }
 .texttitle{
@@ -46,7 +73,7 @@
 .introduce{
   margin-top: 12rpx;
   width: 100%;
-  font-size: 24rpx;
+  font-size: 28rpx;
   display: -webkit-box;
   line-height: 40rpx;
   word-break: break-all;
@@ -59,7 +86,7 @@
 .address{
   margin-top: 12rpx;
   width: 100%;
-  font-size: 24rpx;
+  font-size: 28rpx;
   display: -webkit-box;
   line-height: 40rpx;
   word-break: break-all;
@@ -70,31 +97,27 @@
   letter-spacing: 4rpx;
 }
 .facilities{
-  margin: 12rpx 0 20rpx 0;
+  margin: 12rpx 0 12rpx 0;
+  padding-bottom: 20rpx;
   width: 100%;
-  font-size: 24rpx;
+  font-size: 28rpx;
   display: -webkit-box;
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp:3;
-  overflow: scroll;
   letter-spacing: 4rpx;
 }
 .notice{
   margin-top: 20rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 .requirement{
   position: relative;
   float: right; 
 }
-.bookbutton{
-width:100%;  
-background-color:#fff; 
-}
-.button{
-  width: 100%;
-  position: relative;
-  margin:0 auto; 
+.reserveBtn {
+  margin: 30rpx 25rpx 60rpx 25rpx;
+  background-color: #71C671;
+  color: #fff;
 }
   

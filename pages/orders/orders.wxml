@@ -19,6 +19,9 @@
     <view wx:elif="{{item.status === '已完成'}}" class="statusYwcText">
       <text>{{item.status}}</text>
     </view>
+    <view wx:elif="{{item.status === '交易关闭'}}" class="statusJYGBText">
+      <text>支付超时已取消</text>
+    </view>
     <view wx:else class="statusTkText">
       <text>{{item.status}}</text>
     </view>
@@ -31,12 +34,12 @@
     <text class="orderDetail">订单总额： ￥{{item.price}}</text>
   </view>
 </view>
-<view wx:if="{{code === '-1'}}" class="noOrder">
-  <image class="noOrderImg" src="/img/status-none@2x.png"></image>
-  <text class="noOrderText">您现在还没有订单哦!</text>
-</view>
 <view wx:if="{{userInfo === ''}}" class="noOrder">
   <image class="noOrderImg" src="/img/status-none@2x.png"></image>
   <text class="noOrderText">您现在还没有登录哦!</text>
+</view>
+<view wx:elif="{{show}}" class="noOrder">
+  <image class="noOrderImg" src="/img/status-none@2x.png"></image>
+  <text class="noOrderText">您现在还没有订单哦!</text>
 </view>
 

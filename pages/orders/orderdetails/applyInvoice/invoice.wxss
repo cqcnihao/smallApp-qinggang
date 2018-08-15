@@ -1,0 +1,45 @@
+.invoiceContainer {
+  font-size: 26rpx;
+  line-height: 60rpx;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  margin: 0 35rpx;
+}
+
+.content text {
+  width: 104rpx;
+  margin-right: 40rpx;
+}
+
+.title {
+  background-color: #DCDCDC;
+  color: #555;
+  height: 60rpx;
+  padding: 0 35rpx;
+}
+
+radio {
+  transform:scale(0.7);
+}
+.line {
+  border-bottom: 2rpx solid #DCDCDC;
+}
+
+.placeholderClass, input {
+  font-size: 22rpx;
+}
+.invoiceBtn {
+  margin-top: 30rpx;
+  width: 400rpx;
+}
+
+.tip {
+  margin: 35rpx;
+  line-height: 30rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #8B0000;
+}

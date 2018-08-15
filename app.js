@@ -3,6 +3,6 @@ App({
   onLaunch: function () {
   },
   globalData: {
-    userInfo: '',
+    url: 'https://gb.lemengxiangju.com'
   }
 })

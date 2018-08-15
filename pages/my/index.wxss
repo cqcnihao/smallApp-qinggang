@@ -1,44 +1,37 @@
-/* pages/personalPage/personalPage.wxss */
-
 page{
-    background: #efeff4;
+    background: #fff;
 }
-
-.title{
-  text-align:center;font-size:16px
-}
-
 .userInfo{
   display: flex;
-  flex-direction: row;
-  position: relative;
-  width:100vw;
-  height:40vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height:332rpx;
   text-align: center;
+  background-color:#71C671;
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
 }
 
 .userInfo button {
-  height: 100rpx;
-  margin-top: 180rpx; 
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 200rpx;
+  margin-top: 60rpx;
+  background-color: #fff;
+  font-size: 30rpx;
 }
 
 .headImg{
-  position: absolute;
   width:19.3vw;
   height:19.3vw;
   background:#fff;
-  z-index:12;
   border-radius: 50%;
-  left: 41.26vw;
-  top: 3.73vw
 }
 
 .username{
-  position: absolute;
-  z-index:13;
   color:#fff;
-  left: 45.1vw;
-  top: 24.5vw;
   font-size: 4vw;
 }
 
@@ -48,24 +41,38 @@ page{
   height: 12vw;
   background:#fff;
   color: #fff;
-  border-bottom: 0.5vw solid  #efeff4;
-  position: relative
-  
+  border-bottom: 4rpx solid  #efeff4;
 }
 
 .lableImg{
-  width: 5.53vw;height: 5.53vw;margin-top: 3.3vw;margin-left: 5.86vw
+  width: 48rpx;
+  height: 48rpx;
+  margin-top: 3.3vw;
+  margin-left: 5.86vw
+}
+
+.contactLable {
+  width: 38rpx;
+  height: 36rpx;
+  margin-top: 28rpx;
+  padding-left: 8rpx;
+  padding-right: 8rpx;
 }
 
 .labeltitle{
-  font-size:4vw;margin-top:3.3vw;color:#000;margin-left:10px
+  font-size: 30rpx;
+  margin-top: 24rpx;
+  color:#000;
+  margin-left:10px
 }
 
 .leftdirection{
-  width: 3.6vw;height: 3.6vw;position: absolute;right:7.46vw;top: 4.2vw;display: inline-block
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 30rpx;
+  margin-left: 450rpx;
 }
 
 .loginOut {
-  width: 200rpx;
   margin-top: 40rpx;
 }

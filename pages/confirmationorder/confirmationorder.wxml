@@ -1,3 +1,4 @@
+<form bindsubmit="formSubmit">
 <view id="orderContainer">
   <view class="orderInfoFirst">
     <view class="content">  <!--通过content类设置所有内容的左右边距 -->
@@ -27,7 +28,7 @@
         </view>
         <view class="input-text">
             <text>入住人数</text>
-            <input placeholder="必填" placeholder-class="placeholderClass" bindinput="liveNumInput" type="number"/> 
+            <input placeholder="必填" placeholder-class="placeholderClass" type="number" name="liveNum"/> 
         </view>
       </view>
     </view>
@@ -36,11 +37,11 @@
     <view class="content">
       <view id="contactPerson" class="input-text">
         <text>联系人</text>
-        <input placeholder="请填入真实姓名" placeholder-class="placeholderClass" bindinput="linkmanInput"/>
+        <input placeholder="请填入真实姓名" placeholder-class="placeholderClass" name="linkman"/>
       </view>
       <view class="input-text">
         <text>手机号</text>
-        <input type="number" placeholder="请输入手机号" placeholder-class="placeholderClass" bindinput="phoneInput"/>
+        <input type="number" placeholder="请输入手机号" placeholder-class="placeholderClass" name="phone"/>
       </view>
     </view>
   </view>
@@ -49,11 +50,11 @@
       <text>入住信息(只需一位)</text>
       <view class="clientName input-text">
         <text>姓名</text>
-        <input placeholder="请填写证件上的姓名"  placeholder-class="placeholderClass" bindinput="trueNameInput"/>
+        <input placeholder="请填写证件上的姓名"  placeholder-class="placeholderClass" name="trueName"/>
       </view>
       <view class="input-text">
         <text>身份证号</text>
-        <input type="idcard" id="phoneNum" placeholder="请填写正确身份证号码" placeholder-class="placeholderClass" bindinput="idcardInput"/>
+        <input type="idcard" id="phoneNum" placeholder="请填写正确身份证号码" placeholder-class="placeholderClass" name="idcard"/>
       </view>
     </view>
   </view>
@@ -65,13 +66,14 @@
   </view>
   <view class="orderInfoSixth">
     <view class="content">
-      <text>退款政策</text>
-      <text>入住之前一天取消订单，全额退款。入住以后中途办理退款，办理当天的费用不退，当天以后的费用可退。</text>
+      <text>退款规则</text>
+      <text class="refundText">入住前一天取消订单，全额退款。预订多天，入住以后中途办理退款，办理当天的房费不退，当天以后的房费可退。</text>
     </view>
   </view>
   <view class="orderInfoFinal">
     <text class="payMent">线上支付： </text>
     <text class="money">￥{{houseInfo.price*liveDayCount}}</text>
-    <button catchtap="handleBtnTap">提交订单</button>
+    <button formType="submit">提交订单</button>
   </view>
 </view>
+</form>

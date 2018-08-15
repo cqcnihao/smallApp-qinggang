@@ -6,10 +6,11 @@ textarea {
   margin: 30rpx 0;
   padding: 10rpx 10rpx;
   box-sizing: border-box;
+  font-size: 28rpx;
 }
 
 .placeholderClassTextarea {
-  font-size: 24rpx;
+  font-size: 26rpx;
   padding-left: 10rpx;
 }
 

@@ -1,0 +1,52 @@
+<form bindsubmit="formSubmit">
+  <view class="invoiceContainer">
+    <view class="title"><text>发票详情</text></view>
+    <view class="content">
+      <text>抬头类型</text>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label>
+          <radio value="company" />企业单位
+        </label>
+        <label class="radio">
+          <radio value="notCompany" />个人/非企业单位
+        </label>
+      </radio-group>
+    </view>
+    <view class='line'></view>
+    <view class="content">
+      <text>发票抬头</text>
+      <input placeholder='填写发票抬头' placeholder-class="placeholderClass" name="name"/>
+    </view>
+    <view class='line'></view>
+    <!-- 选择企业单位时可见 -->
+    <view class="content" wx:if="{{showDutyNum}}"> 
+      <text>税号</text>
+      <input placeholder='填写纳税人识别号' placeholder-class="placeholderClass" name="num"/>
+    </view>
+    <view class='line'></view>
+    <view class='line'></view>
+    <view class="content">
+      <text>发票金额</text>
+      <input value="{{orderDetails.price}} 元" name="price" disabled />
+    </view>
+    <view class='line'></view>
+    <view class="title"><text>发票收件信息</text></view>
+    <view class="content">
+      <text>收件人</text>
+      <input placeholder='填写收件人' placeholder-class="placeholderClass" name="linkman"/>
+    </view>
+    <view class='line'></view>
+    <view class="content">
+      <text>联系电话</text>
+      <input placeholder='填写联系电话' placeholder-class="placeholderClass" name="phone"/>
+    </view>
+    <view class='line'></view>
+    <view class="content">
+      <text>邮寄地址</text>
+      <input placeholder='填写详细地址' placeholder-class="placeholderClass" name="address" />
+    </view>
+    <view class='line'></view>
+    <view class="tip"><text>温馨提醒：请仔细核对所填信息之后再提交开票，避免由填写错误导致的不便。</text></view>
+    <button class="invoiceBtn" formType="submit" type="primary" wx:if="{{showBtn}}">提交开票</button>
+  </view>
+</form>

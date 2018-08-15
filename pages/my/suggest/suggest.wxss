@@ -9,16 +9,11 @@ textarea {
   height: 300rpx;
   margin: 30rpx 0;
   padding: 10rpx 10rpx;
+  font-size: 28rpx;
 }
 
-.placeholderClassTextarea {
-  font-size: 24rpx;
-  padding-left: 10rpx;
-}
-
-.placeholderClassInput {
-  font-size: 24rpx;
-  /* padding-left: 10rpx; */
+.placeholderClass {
+  font-size: 26rpx;
 }
 
 .suggestTitle {
@@ -31,14 +26,18 @@ input {
   border: 2rpx solid #DCDCDC;
   margin-bottom: 20rpx;
   padding: 0 10rpx; 
-  font-size: 24rpx;
+  font-size: 28rpx;
+  height: 70rpx;
 }
 
 .remarkText {
   font-size: 26rpx;
 }
 
-button {
-  font-size: 26rpx;
+.wrapper button {
+  font-size: 30rpx;
   margin-top: 30rpx;
+  background-color: #71C671;
+  height: 92rpx;
+  line-height: 92rpx;
 }

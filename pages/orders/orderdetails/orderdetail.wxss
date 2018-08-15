@@ -1,9 +1,6 @@
-#orderContainer {
-
-}
 
 text {
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 
 .content {
@@ -21,7 +18,7 @@ text {
 }
 
 .orderImg {
-   width: 150rpx;
+  width: 150rpx;
   height: 150rpx;
   border-radius: 10rpx;
   margin-right: 35rpx;
@@ -38,6 +35,10 @@ text {
 
 .secondPart, .thirdPart, .thirdPart .content {
   border-bottom: 2rpx solid #DCDCDC;
+}
+
+#finalContent {
+  border-bottom: none;
 }
 
 .btnWrapper {
@@ -58,4 +59,19 @@ text {
 .dfkButtons {
   position: fixed;
   bottom: 0;
+}
+
+.statusDfkText, .statusYfkText, .statusYwcText {
+  color: #71C671;
+  margin-left: 20rpx;
+}
+
+.statusYqxText, .statusTkText, .statusJYGBText{
+  color: #B22222;
+  margin-left: 20rpx;
+}
+
+.applyInvoice {
+  margin: 50rpx 35rpx 0 35rpx;
+  background-color: #fff;
 }

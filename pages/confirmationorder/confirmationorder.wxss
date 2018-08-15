@@ -1,13 +1,12 @@
 #orderContainer {
-  font-size: 24rpx;
-  line-height: 50rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
 }
 
 #orderContainer input {
   text-align: right;
   width: 400rpx;
 }
-
 .placeholderClass {
   font-size: 24rpx;
   text-align: right;
@@ -41,7 +40,6 @@
 }
 .aboutTime {
   border-bottom: 2rpx solid #DCDCDC;
-  padding-bottom: 35rpx;
 }
 
 .checkTime {
@@ -53,7 +51,6 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 2rpx solid #DCDCDC;
-  line-height: 70rpx;
 }
 
 .orderInfoFifth .content {
@@ -67,15 +64,13 @@
 
 .orderInfoSixth text {
   display: block;
+  line-height: 50rpx;
 }
 
 .orderInfoFinal {
-  position: fixed;
-  bottom: 0;
   border-top: 2rpx solid #DCDCDC;
   width: 100%;
   height: 100rpx;
-  z-index: 99;
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -85,11 +80,11 @@
 button {
   display: inline-block;
   color: #fff;
-  background-color: #008000;
+  background-color: #71C671;
   font-size: 35rpx;
   width: 300rpx;
-  height: 50rpx;
-  line-height: 50rpx;
+  height: 60rpx;
+  line-height: 60rpx;
   margin-left: 40rpx;
   margin-right: 40rpx; 
 }
@@ -107,4 +102,9 @@ button {
 .input-text {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.refundText {
+  font-size: 24rpx;
 }

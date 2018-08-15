@@ -1,16 +1,4 @@
-
-<text>我是团体预订页面</text>
-
-<view>
-  <text>一、团队建设</text>
+<view class="content">
+来一场亲近大自然的生日轰趴？在山水间与亲朋周末小聚，在朝夕相处间增加团队默契？让品道青杠来丰富你的团体生活，清新的空气，河边BBQ、 乡野民宿、耕种采摘、农家小菜。与家人，与朋友，与团队，远离城市庸扰日常，去香草湖散散步，摆脱空气清新剂，带身心去空气清新地。
 </view>
-
-<view>
-  <text>二、生日PARTY</text>
-</view>
-
-<view>
-  <text>。。。</text>
-</view>
-
-<button>团体预订请联系客服</button>
+<button catchtap='contactKefu' class="contactBtn">立即联系客服</button>

@@ -1,8 +1,17 @@
+
 <view class="firstPart">
   <view class="content orderInfo">
     <image class="orderImg" src="{{orderDetails.img}}"></image>
     <view>
-      <view><text>{{orderDetails.houseName}}</text></view>
+      <view>
+        <text>{{orderDetails.houseName}}</text>
+        <text wx:if="{{orderDetails.status === '已付款'}}" class="statusYfkText">订单状态：{{orderDetails.status}}</text>
+        <text wx:elif="{{orderDetails.status === '待付款'}}" class="statusDfkText">订单状态：{{orderDetails.status}}</text>
+        <text wx:elif="{{orderDetails.status === '已取消'}}" class="statusYqxText">订单状态：{{orderDetails.status}}</text>
+        <text wx:elif="{{orderDetails.status === '已完成'}}" class="statusYwcText">订单状态：{{orderDetails.status}}</text>
+        <text wx:elif="{{orderDetails.status === '交易关闭'}}" class="statusJYGBText">订单状态：支付超时已取消</text>
+        <text wx:else class="statusTkText">订单状态：{{orderDetails.status}}</text>
+      </view>
       <view class="houseInfo">
         <view><text class="houseDetail">{{orderDetails.liveTime}} 至 {{orderDetails.leaveTime}}</text></view>
         <view class="houseCount">
@@ -41,7 +50,7 @@
       <text>订单id号</text>
       <text>{{orderDetails.id}}</text>
     </view>
-    <view class="content">
+    <view class="content" id="finalContent">
       <text>下单时间</text>
       <text>{{orderDetails.createTime}}</text>
     </view>
@@ -58,12 +67,6 @@
     class="getPasswordBtn"
   >获取开房密码</button>
 </view>
-<button
-  wx:elif="{{orderDetails.status === '已完成'}}"
->订单已完成</button>
-<button
-  wx:elif="{{orderDetails.status === '退款'}}"
->订单已退款</button>
-<button
-  wx:else="{{orderDetails.status === '已取消'}}"
->订单已取消</button>
+<view wx:elif="{{orderDetails.status === '已完成'}}">
+  <button catchtap="applyInvoice" class="applyInvoice">申请开票</button>
+</view>

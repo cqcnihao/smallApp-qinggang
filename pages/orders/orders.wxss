@@ -4,12 +4,12 @@
 
 .content {
   margin: 30rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   line-height: 40rpx;
 }
 
 .orderDetail {
-  font-size: 20rpx;
+  font-size: 26rpx;
   color: #999;
 }
 
@@ -17,7 +17,7 @@
   color: #71C671;
 }
 
-.statusYqxText, .statusTkText{
+.statusYqxText, .statusTkText, .statusJYGBText {
   color: #B22222;
 }
 

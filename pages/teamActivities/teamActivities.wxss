@@ -1,1 +1,17 @@
-/* pages/teamActivities/teamActivities.wxss */
+text {
+  font-size: 28rpx;
+}
+.content {
+  margin: 10rpx 35rpx;
+  font-size: 30rpx;
+  text-indent: 50rpx;
+  line-height: 50rpx;
+}
+
+.contactBtn {
+  font-size: 30rpx;
+  background-color: #71C671;
+  margin: 50rpx auto;
+  width: 400rpx;
+  color: #fff;
+}
