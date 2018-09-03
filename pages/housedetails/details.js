@@ -24,7 +24,9 @@ Page({
     // houseInfo: {}, //保存房源相关所有信息 ,传递数据失败改用通过缓存
   },
   callback: function(res) {
+    console.log(res.data);
     var that = this;
+    var userInfo = wx.getStorageSync('userInfo');
     if (res.data.code == "1") {//当code为1的时候
       that.setData({
         imgUrls: res.data.obj.imgs,
@@ -39,7 +41,8 @@ Page({
         facilities: res.data.obj.facilities,
         houseType: res.data.obj.houseType,
         houseName: res.data.obj.name,
-        orders: res.data.obj.orders
+        orders: res.data.obj.orders,
+        userInfo: userInfo,
       })
       wx.setStorageSync("houseInfo", res.data.obj)
     }
@@ -59,7 +62,20 @@ Page({
  */
   immediatereservation: function () {
     var that = this;
-    if (this.data.orders.length === 0 || this.data.orders === null) {
+    if(!that.data.userInfo) {
+      wx.showModal({
+        title: '提示',
+        content: '用户未登录，无法提交预订，点击确定按钮前去登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '/pages/my/index',
+            })
+          }
+        }
+      })
+    }
+    else if (this.data.orders.length === 0 || this.data.orders === null) {
       wx.navigateTo({
         url: '../confirmationorder/confirmationorder',
       })

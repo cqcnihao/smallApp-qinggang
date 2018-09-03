@@ -6,6 +6,7 @@ Page({
   },
   callback: function(res) {
     if (res.data.code == "1") {//当code为1的时候
+    console.log(res.data.obj)
       this.setData({
         orderArray: res.data.obj,
         show: false

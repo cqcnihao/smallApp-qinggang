@@ -1,5 +1,5 @@
 .siwperContainer {
-  posiiton: relative;
+  position: relative;
 }
 .swiper {
   width: 100%;
@@ -42,7 +42,7 @@
 }
 .line{
   margin-top: 20rpx;
-  border-bottom: 4rpx solid  #efeff4;
+  border-bottom: 4rpx solid #efeff4;
   position: relative;
 }
 .lableImg{
@@ -62,6 +62,7 @@
   margin: 20rpx 0;
   width: 100rpx;
   height: 120rpx;
+  
   font-size: 28rpx;
   text-align: center;
 }
@@ -74,26 +75,14 @@
   margin-top: 12rpx;
   width: 100%;
   font-size: 28rpx;
-  display: -webkit-box;
   line-height: 40rpx;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:3;
-  overflow: hidden;
-  text-overflow:ellipsis;
   letter-spacing: 4rpx;
 }
 .address{
   margin-top: 12rpx;
   width: 100%;
   font-size: 28rpx;
-  display: -webkit-box;
   line-height: 40rpx;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:3;
-  overflow: hidden;
-  text-overflow:ellipsis;
   letter-spacing: 4rpx;
 }
 .facilities{
@@ -101,10 +90,6 @@
   padding-bottom: 20rpx;
   width: 100%;
   font-size: 28rpx;
-  display: -webkit-box;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:3;
   letter-spacing: 4rpx;
 }
 .notice{

@@ -1,4 +1,7 @@
 <view>
+  <view class="headerImgWrapper">
+    <image class="headerImg" src='/img/logo.jpg'></image>
+  </view>
   <view class="introduction">
     <view class="content">
     品道青杠是由四川乐萌民宿有限公司以“乡村、生态、健康、家庭”为核心，专注于为久居都市人群提供一种新的乡村情怀休闲度假项目。品道青杠主推田园归隐生活方式，让旅客参与农作物耕种采摘，当季食材烹饪，民俗文化体验，回归乡村的自在悠闲，尽享“慢生活”所带来的乐趣。

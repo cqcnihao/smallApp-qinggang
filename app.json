@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/houseInfo/houseInfo",
     "pages/teamActivities/teamActivities",
+    "pages/teamActivities/teamInfo/teamInfo",
     "pages/housedetails/details",
     "pages/my/index",
     "pages/confirmationorder/confirmationorder",

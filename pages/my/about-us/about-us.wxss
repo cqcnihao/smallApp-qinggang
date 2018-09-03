@@ -1,5 +1,13 @@
+.headerImgWrapper {
+  display: flex;
+  justify-content: center;
+  height: 256rpx;
+  width: 750rpx;
+  margin-bottom: 30rpx;
+}
+
 .headerImg {
-   height: 400rpx;
+   height: 100%;
    width: 100%;
 }
 

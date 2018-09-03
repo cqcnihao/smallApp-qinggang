@@ -29,7 +29,7 @@ Page({
         content: '入住人数不能为空',
         showCancel: false
       })
-    } else if (formValue === '') {
+    } else if (formValue.linkman === '') {
       wx.showModal({
         title: '提示',
         content: '联系人不能为空',
@@ -56,20 +56,6 @@ Page({
         title: '提示',
         content: '身份证格式错误',
         showCancel: false
-      })
-    }
-    else if (!that.data.userInfo) {
-      wx.showModal({
-        title: '提示',
-        content: '用户未登录，无法提交订单，点击确定按钮前去登录',
-        showCancel: false,
-        success: function(res) {
-          if (res.confirm) {
-            wx.switchTab({
-              url: '/pages/my/index',
-            })
-          }
-        }
       })
     }
     else if (that.data.liveDayCount > 90) {

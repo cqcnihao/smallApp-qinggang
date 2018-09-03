@@ -1,17 +1,15 @@
-text {
-  font-size: 28rpx;
-}
-.content {
-  margin: 10rpx 35rpx;
-  font-size: 30rpx;
-  text-indent: 50rpx;
-  line-height: 50rpx;
+
+.bg-img {
+  position: absolute;
+  z-index: -1;
+  width: 750rpx;
+  height: 1190rpx;
 }
 
-.contactBtn {
-  font-size: 30rpx;
-  background-color: #71C671;
-  margin: 50rpx auto;
-  width: 400rpx;
-  color: #fff;
+.reserveBtn {
+  z-index: 99;
+  width: 444rpx;
+  height: 130rpx;
+  margin-top: 930rpx;
+  margin-left: 150rpx;
 }

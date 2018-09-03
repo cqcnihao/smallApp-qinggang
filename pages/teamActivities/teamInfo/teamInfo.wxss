@@ -1,0 +1,114 @@
+.teamContainer {
+  margin: 0 35rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.tips {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 40rpx;
+  font-size: 30rpx;
+}
+
+.tipInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pickerWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 40rpx;
+  padding-bottom: 20rpx; 
+  border-bottom: 2rpx solid #DCDCDC;
+}
+
+.inputWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #DCDCDC;
+  line-height: 80rpx;
+  text-align: right;
+}
+
+.inputWrapper text {
+  width: 150rpx;
+  text-align: left;
+}
+
+.placeholderClass {
+  font-size: 26rpx;
+  text-align: right;
+}
+
+.dayWrapper {
+  position: relative;
+}
+.dayContainer {
+  width: 200rpx;
+  height: 50rpx;
+}
+
+.liveDayMount {
+  position: absolute;
+  top: 2rpx;
+  left: 80rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color:	#696969;
+}
+
+.pickerStart {
+  margin-left: 80rpx;
+}
+
+.pickerEnd {
+  margin-right: 100rpx;
+}
+
+.imgWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  height: 240rpx;
+  width: 320rpx;
+}
+
+.imgWrapper image {
+  width: 100%;
+  height: 100%;
+}
+
+.idTip {
+  margin-top: 20rpx;
+}
+
+.submitBtn {
+  font-size: 30rpx;
+  background-color: #71C671;
+  margin: 50rpx auto;
+  width: 100%;
+  color: #fff;
+}
+
+icon {
+  margin-right: 10rpx;
+}
+
+.tipImg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.tipWrapper {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #333;
+  margin-top: 20rpx;
+}
