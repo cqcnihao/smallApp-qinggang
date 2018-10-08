@@ -2,10 +2,12 @@ var util = require('../../../utils/util.js');
 var app = getApp();
 Page({
   data: {
+    isWholeHouse: false
   },
   onLoadCallback: function(res) {
     this.setData({
-      orderDetails: res.data.obj
+      orderDetails: res.data.obj,
+      isWholeHouse: res.data.obj.houseName.includes('整栋')
     })
   },
   onLoad: function (options) {

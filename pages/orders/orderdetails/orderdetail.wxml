@@ -60,12 +60,15 @@
   <button class="cancelBtn" catchtap="cancelOrder">取消订单</button>
   <button class="PaymentBtn" catchtap="goPayment">去支付</button>
 </view>
-<view wx:elif="{{orderDetails.status === '已付款'}}" class="btnWrapper">
+<view wx:elif="{{orderDetails.status === '已付款' && isWholeHouse === false}}" class="btnWrapper">
   <button class="refundBtn" catchtap="handleRefound">申请退款</button>
   <button
     catchtap="getHousePassword"
     class="getPasswordBtn"
   >获取开房密码</button>
+</view>
+<view wx:elif="{{orderDetails.status === '已付款' && isWholeHouse === true }}">
+  <button class="refundBtn" catchtap="handleRefound">申请退款</button>
 </view>
 <view wx:elif="{{orderDetails.status === '已完成'}}">
   <button catchtap="applyInvoice" class="applyInvoice">申请开票</button>
